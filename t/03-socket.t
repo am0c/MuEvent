@@ -37,14 +37,14 @@ sub socket-cb(:$sock) {
 my $c1 = IO::Socket::INET.new(:host('localhost'), :port(6666));
 my $c2 = IO::Socket::INET.new(:host('localhost'), :port(6666));
 
-MuEvent::socket(
+ME::socket(
     socket => $l,
     poll   => 'r',
     cb     => &socket-cb,
     params => { sock => $l },
 );
 
-MuEvent::socket(
+ME::socket(
     socket => $l,
     poll   => 'r',
     cb     => &socket-cb,

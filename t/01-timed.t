@@ -5,7 +5,7 @@ plan 9;
 my $start;
 
 # 1 test, 2
-MuEvent::timer(
+ME::timer(
     after => 2,
     cb    => sub {
         ok ($start + 2 <= time <= $start + 3), 'after 2';
@@ -13,7 +13,7 @@ MuEvent::timer(
 );
 
 # 3 tests, 3, 5, 7
-MuEvent::timer(
+ME::timer(
     after    => 3,
     interval => 2,
     cb    => sub {

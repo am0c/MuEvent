@@ -7,7 +7,7 @@ my $start = time;
 my $plan = 1;
 
 {
-    my $cv = MuEvent::condvar;
+    my $cv = ME::cv;
     ok $cv.send( "foo" ), "send";
     ok $cv.recv ~~ "foo", "recv";
 }
@@ -19,7 +19,7 @@ my $plan = 1;
 }
 
 {
-    my $cv = MuEvent::condvar;
+    my $cv = ME::cv;
 
     MuEvent::timer(after => 2, cb => sub { 
         ok $plan++ == 2 && $start+1 <= time <= $start+3, "timer occured";

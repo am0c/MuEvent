@@ -12,7 +12,7 @@ plan 6;
 
 my $start;
 
-MuEvent::timer(
+ME::timer(
     after => 2,
     cb    => sub {
         ok ($start + 2 <= time <= $start + 3), 'after 2';

@@ -1,5 +1,5 @@
 #= Event-driven programming in Perl 6
-module MuEvent;
+module MuEvent {
 
 my @timers;
 my @sockets;
@@ -110,4 +110,14 @@ sub run-once {
     if not $seen-action {
         for @idlers { $_<cb>.(|$_<params>) }
     }
+}
+
+}
+module ME {
+
+ME::<&idle>   ::= MuEvent::<&idle>;
+ME::<&timer>  ::= MuEvent::<&timer>;
+ME::<&socket> ::= MuEvent::<&socket>;
+ME::<&cv>     ::= MuEvent::<&condvar>;
+
 }
